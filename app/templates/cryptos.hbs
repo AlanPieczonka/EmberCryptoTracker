@@ -1,9 +1,8 @@
-    <button class="ui primary basic button">Primary</button>
-    <button class="ui secondary basic button">Secondary</button>
-    <button class="ui positive basic button">Positive</button>
-    <button class="ui negative basic button">Negative</button>
-    <hr>
-{{#each model as |crypto|}}
-      {{#link-to 'cryptos.crypto' crypto.symbol class="ui primary basic button"}}{{crypto.symbol}}{{/link-to}}
-{{/each}}
+<div class="flex flex--center-all">
+  {{#each model as |crypto|}}
+      {{#menu/menu-link symbol=crypto.symbol}}
+        {{crypto.symbol}}
+      {{/menu/menu-link}}
+  {{/each}}
+</div>
 {{outlet}}
