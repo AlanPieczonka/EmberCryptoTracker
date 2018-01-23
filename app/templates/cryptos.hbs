@@ -4,10 +4,6 @@
     <button class="ui negative basic button">Negative</button>
     <hr>
 {{#each model as |crypto|}}
-  <div class="grid center aligned container">
-    <div class="center aligned">
-      <button class="ui primary basic button">{{crypto.symbol}}</button>
-    </div>
-  </div>
+      {{#link-to 'cryptos.crypto' crypto.symbol class="ui primary basic button"}}{{crypto.symbol}}{{/link-to}}
 {{/each}}
 {{outlet}}
