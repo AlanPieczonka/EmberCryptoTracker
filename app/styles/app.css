@@ -7,10 +7,15 @@
 }
 
 .flex{
-  display: flex;
+  display: flex !important;
 }
 
 .flex--center-all{
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#myChart{
+  width: 400px !important;
+  height: 400px !important;
 }
