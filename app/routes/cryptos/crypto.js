@@ -5,7 +5,6 @@ export default Route.extend({
     const symbol = params.crypto_symbol.toUpperCase(),
           crypto = this.modelFor('cryptos')
                   .find(crypto => crypto.symbol == symbol);
-                  console.log(crypto);
     return crypto;
   },
 });

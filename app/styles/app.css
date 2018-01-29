@@ -15,7 +15,7 @@
   align-items: center !important;
 }
 
-#myChart{
+.myChart{
   width: 400px !important;
   height: 400px !important;
 }
