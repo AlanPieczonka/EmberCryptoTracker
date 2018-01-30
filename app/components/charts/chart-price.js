@@ -45,14 +45,23 @@ export default Component.extend({
         set(this, 'chart', myChart);
   },
   didUpdateAttrs(){
-    console.log(get(this, 'crypto'));
     const attributes = get(this, 'crypto'),
           chart = get(this, 'chart'),
+          label = get(this, 'option'),
+          data = attributes[label],
           price = attributes.price_usd;
-          
+    set(this, 'templateLabel', label);
+    set(this, 'templateData', data);
+    console.log('----------------');
+    console.log('DID UPDATE ATTRS');
+    console.log('Label: ' + label);
+    console.log('DATA');
+    console.log(data);
+    console.log('----------------');
+    // TO DO: Object with nice labels
     chart.data.datasets.forEach((dataset) => {
-        dataset.label = `USD Price ${price}`;
-        dataset.data[0] = price;
+        dataset.label = `${label}`;
+        dataset.data[0] = data;
     });
     chart.update();
   },
