@@ -8,7 +8,9 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('cryptos', function() {
-    this.route('crypto', { path: '/:crypto_symbol'});
+    this.route('crypto', { path: '/:crypto_symbol'}, function() {
+      this.route('option', { path: '/:option'});
+    });
   });
 });
 

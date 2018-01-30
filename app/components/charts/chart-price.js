@@ -3,6 +3,7 @@ import { get, set } from '@ember/object';
 
 export default Component.extend({
   didInsertElement(){
+    const option = 'price_usd';
     const price = get(this, 'crypto').price_usd,
           ctx = document.querySelector('#priceChart').getContext('2d'),
           myChart = new Chart(ctx, {
@@ -44,6 +45,7 @@ export default Component.extend({
         set(this, 'chart', myChart);
   },
   didUpdateAttrs(){
+    console.log(get(this, 'crypto'));
     const attributes = get(this, 'crypto'),
           chart = get(this, 'chart'),
           price = attributes.price_usd;

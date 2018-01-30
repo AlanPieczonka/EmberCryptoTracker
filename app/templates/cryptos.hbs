@@ -1,6 +1,6 @@
 <div class="flex flex--center-all">
   {{#each model as |crypto|}}
-      {{#menu/menu-link symbol=crypto.symbol}}
+      {{#menu/menu-link crypto=crypto}}
         {{crypto.symbol}}
       {{/menu/menu-link}}
   {{/each}}

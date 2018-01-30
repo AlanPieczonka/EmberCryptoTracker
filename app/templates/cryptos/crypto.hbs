@@ -1,6 +1,16 @@
 <div class="flex flex--center-all margin--30">
   <h1 class="violet">{{model.name}}</h1>
 </div>
+<div class="flex flex--center-all">
+  <select>
+    <option>Price</option>
+    <option>Change 24h</option>
+    <option>Change 7d</option>
+  </select>
+</div>
 <div class="flex flex--center-all margin--30">
-  {{charts/chart-price crypto=model}}
+  {{outlet}}
+</div>
+<div class="flex flex--center-all margin--30">
+
 </div>
