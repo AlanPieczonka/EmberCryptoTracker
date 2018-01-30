@@ -3,16 +3,17 @@ import { get, set } from '@ember/object';
 
 export default Component.extend({
   didInsertElement(){
-    const option = 'price_usd';
-    const price = get(this, 'crypto').price_usd,
+    const attributes = get(this, 'crypto'),
+          label = get(this, 'option'),
+          data = attributes[label],
           ctx = document.querySelector('#priceChart').getContext('2d'),
           myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Price"],
+                labels: [label],
                 datasets: [{
-                    label: `USD Price ${price}`,
-                    data: [price],
+                    label: label,
+                    data: [data],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -48,18 +49,13 @@ export default Component.extend({
     const attributes = get(this, 'crypto'),
           chart = get(this, 'chart'),
           label = get(this, 'option'),
-          data = attributes[label],
-          price = attributes.price_usd;
+          data = attributes[label];
+
     set(this, 'templateLabel', label);
     set(this, 'templateData', data);
-    console.log('----------------');
-    console.log('DID UPDATE ATTRS');
-    console.log('Label: ' + label);
-    console.log('DATA');
-    console.log(data);
-    console.log('----------------');
     // TO DO: Object with nice labels
-    chart.data.datasets.forEach((dataset) => {
+    chart.data.labels[0] = label;
+    chart.data.datasets.forEach(dataset => {
         dataset.label = `${label}`;
         dataset.data[0] = data;
     });
