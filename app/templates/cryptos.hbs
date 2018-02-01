@@ -1,8 +1,10 @@
-<div class="flex flex--center-all">
+<div class="container ui grid">
+  <div class="eight column row centered">
   {{#each model as |crypto|}}
-      {{#menu/menu-link crypto=crypto}}
-        {{crypto.symbol}}
-      {{/menu/menu-link}}
+    {{#menu/menu-link crypto=crypto}}
+      {{crypto.symbol}}
+    {{/menu/menu-link}}
   {{/each}}
+  </div>
 </div>
 {{outlet}}
