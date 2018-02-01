@@ -7,5 +7,5 @@ export default Route.extend({
       crypto: this.modelFor('cryptos.crypto'),
       option: params.option
     });
-  }
+  },
 });
