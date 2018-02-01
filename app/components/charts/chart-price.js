@@ -44,6 +44,9 @@ export default Component.extend({
             }
         });
         set(this, 'chart', myChart);
+        set(this, 'templateLabel', option);
+        set(this, 'templateData', data);
+
   },
   didUpdateAttrs(){
     const crypto = get(this, 'crypto'),
@@ -53,7 +56,6 @@ export default Component.extend({
 
     set(this, 'templateLabel', option);
     set(this, 'templateData', data);
-    // TO DO: Object with nice labels
     chart.data.labels[0] = option;
     chart.data.datasets.forEach(dataset => {
         dataset.label = `${option}`;
